@@ -1,3 +1,3 @@
 # pink3dlove
 
-![pink3dlove Image](https://cdn.jsdelivr.net/gh/ZhiJingHub/ZhiJingHub.github.io@67230034c1507d73769dae8046223f89be270025/HappyBirthdayFireworks/photo/HappyBirthdayFireworks.png)
+![pink3dlove Image](https://cdn.jsdelivr.net/gh/ZhiJingHub/ZhiJingHub.github.io@7ad4867bac044a1e5a7e48a3b46b197a44acdbc2/pink3dlove/photo/pink3dlove.png)
