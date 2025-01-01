@@ -1,3 +1,3 @@
 # lovered
 
-![lovered Image](https://cdn.jsdelivr.net/gh/ZhiJingHub/ZhiJingHub.github.io@ca30d8030f6866bf0666034efba25d0067762f6d/smallheart/photo/smallheart.png)
+![lovered Image](https://github.com/ZhiJingHub/ZhiJingHub.github.io/blob/0cbcfdcee205dc127e9986c9b368ef50b44b5903/lovered/photo/lovered.png)
