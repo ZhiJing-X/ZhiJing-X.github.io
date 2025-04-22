@@ -1,3 +1,3 @@
 # loveshalou
 
-![loveshalou Image](https://cdn.jsdelivr.net/gh/ZhiJingHub/ZhiJingHub.github.io@51865f22ce7b9e2186d22648da5f475003954162/loveshalou/photo/loveshalou.png)
+![loveshalou Image](https://github.com/ZhiJingHub/ZhiJingHub.github.io/blob/63e140cb7aa89113bb96bb500ea2189200fa2749/loveshalou/photo/loveshalou.png)
