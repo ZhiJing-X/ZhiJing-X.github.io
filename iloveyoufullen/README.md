@@ -1,3 +1,3 @@
 # iloveyoufullen
 
-![iloveyoufullen Image](https://cdn.jsdelivr.net/gh/ZhiJingHub/ZhiJingHub.github.io@0d2fdd72bba350bff7a36fffcb2f672f379204da/iloveyoufullen/photo/iloveyoufullen.png)
+![iloveyoufullen Image](https://cdn.jsdelivr.net/gh/ZhiJingHub/ZhiJingHub.github.io@75bfab0b05a90c5cd0eddaf819e20cb8393945cb/iloveyoufullen/photo/iloveyoufullen.png)
