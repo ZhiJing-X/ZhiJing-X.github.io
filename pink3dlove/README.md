@@ -1,3 +1,3 @@
 # pink3dlove
 
-![pink3dlove Image](https://cdn.jsdelivr.net/gh/ZhiJingHub/ZhiJingHub.github.io@7ad4867bac044a1e5a7e48a3b46b197a44acdbc2/pink3dlove/photo/pink3dlove.png)
+![pink3dlove Image](https://cdn.jsdelivr.net/gh/ZhiJingHub/ZhiJingHub.github.io@a8515f2b2c030f57d716d3b9a9d963e8a0d29720/pink3dlove/photo/pink3dlove.png)
