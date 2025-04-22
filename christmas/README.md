@@ -1,3 +1,3 @@
 # Christmas
 
-![christmas Image](https://cdn.jsdelivr.net/gh/ZhiJingHub/ZhiJingHub.github.io@d2601a9364d83be086f0b151180b5226c80273db/christmas/photo/christmas.png)
+![christmas Image](https://cdn.jsdelivr.net/gh/ZhiJingHub/ZhiJingHub.github.io@85410b11c636350b194bf4b7134cfdc0ecde3398/christmas/photo/christmas.png)
