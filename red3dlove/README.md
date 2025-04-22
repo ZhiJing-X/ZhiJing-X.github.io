@@ -1,3 +1,3 @@
 # red3dlove
 
-![red3dlove Image](https://cdn.jsdelivr.net/gh/ZhiJingHub/ZhiJingHub.github.io@17b957fb1a3638c227be16db12159e77444b4d2a/red3dlove/photo/red3dlove.png)
+![red3dlove Image](https://cdn.jsdelivr.net/gh/ZhiJingHub/ZhiJingHub.github.io@51556324c1849cc31c8f8424792cc4fd315adbfa/red3dlove/photo/red3dlove.png)
