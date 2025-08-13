@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZhiJingHub 的创意作品集</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .header {
+            background-color: #fff;
+            padding: 40px 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .header h1 {
+            color: #2c3e50;
+            font-size: 3em;
+            margin: 0;
+        }
+        .header p {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .project-card {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            padding: 20px;
+            text-align: center;
+        }
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        .project-card h3 {
+            margin-top: 0;
+            font-size: 1.5em;
+            color: #34495e;
+            margin-bottom: 5px;
+        }
+        .project-card p {
+            font-size: 1em;
+            color: #95a5a6;
+            margin: 0;
+            min-height: 40px;
+        }
+        /* 悬浮预览图的样式 */
+        .preview-image-container {
+            position: absolute;
+            width: 300px;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            pointer-events: none; /* 让鼠标穿透，不影响下方元素 */
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            transform: translate(20px, 20px); /* 初始位置偏移 */
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            color: #7f8c8d;
+        }
+        .footer a {
+            color: #3498db;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>ZhiJingHub 的创意作品集</h1>
+        <p>这里汇集了我们的所有有趣项目。点击卡片探索每一个独特世界！</p>
+    </div>
+
+    <div class="container">
+        <div class="project-grid">
+            <a href="/HappyBirthdayCake/" class="project-card" data-image="/HappyBirthdayCake/photo/HappyBirthdayCake.png">
+                <h3>生日蛋糕</h3>
+                <p>一个充满欢乐的生日蛋糕动画。</p>
+            </a>
+            <a href="/HappyBirthdayFireworks/" class="project-card" data-image="/HappyBirthdayFireworks/photo/HappyBirthdayFireworks.png">
+                <h3>生日烟花</h3>
+                <p>在生日时绽放的烟花特效。</p>
+            </a>
+            <a href="/christmas/" class="project-card" data-image="/christmas/photo/christmas.png">
+                <h3>圣诞主题</h3>
+                <p>一个温馨浪漫的圣诞节主题页面。</p>
+            </a>
+            <a href="/iloveyoufullen/" class="project-card" data-image="/iloveyoufullen/photo/iloveyoufullen.png">
+                <h3>爱心表白墙</h3>
+                <p>一个充满爱意的动态表白页面。</p>
+            </a>
+            <a href="/love3d/" class="project-card" data-image="/love3d/photo/love3d.png">
+                <h3>3D爱心</h3>
+                <p>一个浪漫的 3D 爱心动画。</p>
+            </a>
+            <a href="/love99you/" class="project-card" data-image="/love99you/photo/love99you.png">
+                <h3>99种语言爱心</h3>
+                <p>为你呈现99种语言呈现爱心的浪漫页面。</p>
+            </a>
+            <a href="/lovedouble/" class="project-card" data-image="/lovedouble/photo/lovedouble.png">
+                <h3>双倍爱心</h3>
+                <p>双倍心形图案的浪漫展示。</p>
+            </a>
+            <a href="/lovered/" class="project-card" data-image="/lovered/photo/lovered.png">
+                <h3>红色爱心</h3>
+                <p>一个以红色为主题的爱心动画。</p>
+            </a>
+            <a href="/loveshalou/" class="project-card" data-image="/loveshalou/photo/loveshalou.png">
+                <h3>爱心沙漏</h3>
+                <p>沙漏效果的浪漫爱心页面。</p>
+            </a>
+            <a href="/lovewithstar/" class="project-card" data-image="/lovewithstar/photo/lovewithstar.png">
+                <h3>星星爱心</h3>
+                <p>爱心与星星结合的闪耀页面。</p>
+            </a>
+            <a href="/pink3dlove/" class="project-card" data-image="/pink3dlove/photo/pink3dlove.png">
+                <h3>粉色3D爱心</h3>
+                <p>一个粉色调的 3D 爱心动画。</p>
+            </a>
+            <a href="/red3dlove/" class="project-card" data-image="/red3dlove/photo/red3dlove.png">
+                <h3>红色3D爱心</h3>
+                <p>经典的红色 3D 爱心动画。</p>
+            </a>
+            <a href="/rose/" class="project-card" data-image="/rose/photo/rose.png">
+                <h3>玫瑰花</h3>
+                <p>一朵优雅盛开的玫瑰花网页。</p>
+            </a>
+            <a href="/smallheart/" class="project-card" data-image="/smallheart/photo/smallheart.png">
+                <h3>小爱心</h3>
+                <p>可爱的动态小爱心。</p>
+            </a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 ZhiJingHub. 所有项目均托管于 <a href="https://www.netlify.com/" target="_blank">Netlify</a>。</p>
+    </div>
+
+    <script>
+        document。addEventListener('DOMContentLoaded'， () => {
+            const cards = document。querySelectorAll('.project-card');
+            const previewContainer = document。createElement('div');
+            previewContainer。classList。add('preview-image-container');
+            document.body.appendChild(previewContainer);
+
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', (e) => {
+                    const imageUrl = card.getAttribute('data-image');
+                    if (imageUrl) {
+                        previewContainer.style.backgroundImage = `url(${imageUrl})`;
+                        previewContainer.style.opacity = '1';
+                        previewContainer.style.left = `${e.clientX + window.scrollX}px`;
+                        previewContainer.style.top = `${e.clientY + window.scrollY}px`;
+                    }
+                });
+
+                card.addEventListener('mousemove', (e) => {
+                    previewContainer.style.left = `${e.clientX + window.scrollX}px`;
+                    previewContainer.style.top = `${e.clientY + window.scrollY}px`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    previewContainer.style.opacity = '0';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
