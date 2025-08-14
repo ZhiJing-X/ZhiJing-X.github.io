@@ -1,198 +1,233 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZhiJingHub 的创意作品集</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-color: #f0f2f5;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
-        .header {
-            background-color: #fff;
-            padding: 40px 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-        .header h1 {
-            color: #2c3e50;
-            font-size: 3em;
-            margin: 0;
-        }
-        .header p {
-            color: #7f8c8d;
-            font-size: 1.2em;
-            margin-top: 10px;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
-        }
-        .project-card {
-            background-color: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            padding: 20px;
-            text-align: center;
-        }
-        .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-        }
-        .project-card h3 {
-            margin-top: 0;
-            font-size: 1.5em;
-            color: #34495e;
-            margin-bottom: 5px;
-        }
-        .project-card p {
-            font-size: 1em;
-            color: #95a5a6;
-            margin: 0;
-            min-height: 40px;
-        }
-        /* 悬浮预览图的样式 */
-        .preview-image-container {
-            position: absolute;
-            width: 300px;
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            pointer-events: none; /* 让鼠标穿透，不影响下方元素 */
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            transform: translate(20px, 20px); /* 初始位置偏移 */
-        }
-        .footer {
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-            color: #7f8c8d;
-        }
-        .footer a {
-            color: #3498db;
-            text-decoration: none;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ZhiJingHub · 创意作品集主页</title>
+  <meta name="description" content="ZhiJingHub 的创意网页作品集合主页，含生日、圣诞、爱心等主题的互动页面入口。">
+  <meta name="color-scheme" content="light dark" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0b0c10;
+      --panel: #111318;
+      --text: #e9edf1;
+      --muted: #96a0aa;
+      --brand: #7c5cff;
+      --brand-2: #00e0b8;
+      --ring: 0 0 0 2px rgba(124,92,255,.35);
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f6f7fb; --panel:#ffffff; --text:#0b1020; --muted:#5d6672; --brand:#6a5cff; --brand-2:#00bfa6;
+      }
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft Yahei", sans-serif; background:var(--bg); color:var(--text);
+      display:flex; min-height:100%; flex-direction:column;
+    }
+    .container{width:100%; max-width:1200px; margin:0 auto; padding:24px}
+    header{
+      position:sticky; top:0; z-index:10; backdrop-filter:saturate(140%) blur(10px);
+      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(0,0,0,0));
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .hero{display:grid; grid-template-columns:1.2fr .8fr; gap:28px; align-items:center; padding:48px 0}
+    @media (max-width:900px){.hero{grid-template-columns:1fr;}}
+    .title{font-size:clamp(28px, 3.4vw, 44px); line-height:1.1; font-weight:800; letter-spacing:.2px;}
+    .subtitle{margin-top:14px; color:var(--muted)}
+    .cta{margin-top:22px; display:flex; gap:12px; flex-wrap:wrap}
+    .btn{appearance:none; border:none; cursor:pointer; padding:12px 16px; border-radius:16px; background:var(--brand); color:#fff; font-weight:600; box-shadow:0 8px 24px rgba(124,92,255,.35); transition:.2s transform}
+    .btn:active{transform:translateY(1px)}
+    .btn.secondary{background:transparent; color:var(--text); border:1px solid rgba(255,255,255,.16)}
+    .searchbar{margin:24px 0 8px; display:flex; align-items:center; gap:12px}
+    .searchbar input{flex:1; background:var(--panel); border:1px solid rgba(255,255,255,.12); color:var(--text); padding:12px 14px; border-radius:14px; outline:none}
+    .searchbar input:focus{box-shadow:var(--ring)}
+    .tags{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:8px}
+    .tag{padding:6px 10px; border-radius:999px; border:1px dashed rgba(255,255,255,.2); font-size:12px; color:var(--muted)}
+
+    .grid{display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:16px}
+    @media (max-width:1100px){.grid{grid-template-columns:repeat(3,1fr)}}
+    @media (max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:520px){.grid{grid-template-columns:1fr}}
+
+    .card{position:relative; overflow:hidden; border-radius:20px; background:var(--panel); border:1px solid rgba(255,255,255,.08); text-decoration:none; color:inherit; display:flex; flex-direction:column; isolation:isolate}
+    .thumb{aspect-ratio:16/10; width:100%; background:#1b1f2a; display:block; object-fit:cover}
+    .content{padding:14px}
+    .name{font-weight:700}
+    .desc{color:var(--muted); font-size:13px; margin-top:6px}
+    .chip{position:absolute; top:10px; left:10px; padding:6px 10px; border-radius:999px; font-size:12px; background:rgba(0,0,0,.4); color:#fff; backdrop-filter: blur(6px)}
+    .hover{position:absolute; inset:0; background:radial-gradient(600px 200px at var(--x,50%) var(--y,50%), rgba(124,92,255,.25), transparent 60%); opacity:0; transition:.25s opacity}
+    .card:hover .hover{opacity:1}
+
+    .footer{margin:40px 0 10px; color:var(--muted); font-size:13px; text-align:center}
+    .kbd{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; padding:2px 6px; border-radius:6px; border:1px solid rgba(255,255,255,.2)}
+
+    .empty{display:none; text-align:center; padding:48px; color:var(--muted)}
+  </style>
 </head>
 <body>
-
-    <div class="header">
-        <h1>ZhiJingHub 的创意作品集</h1>
-        <p>这里汇集了我们的所有有趣项目。点击卡片探索每一个独特世界！</p>
+  <header>
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:16px; padding-block:12px">
+      <a href="/" style="display:flex; align-items:center; gap:10px; text-decoration:none; color:inherit">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.9 1.18 6.87L12 17.77l-6.18 3.27L7 14.17l-5-4.9 6.91-1.01L12 2z" stroke="currentColor"/></svg>
+        <strong>ZhiJingHub</strong>
+      </a>
+      <nav style="display:flex; gap:12px; align-items:center">
+        <a class="btn secondary" href="https://github.com/ZhiJingHub" target="_blank" rel="noopener">GitHub</a>
+        <button class="btn" id="copyUrl">复制站点地址</button>
+      </nav>
     </div>
+  </header>
 
-    <div class="container">
-        <div class="project-grid">
-            <a href="/HappyBirthdayCake/" class="project-card" data-image="/HappyBirthdayCake/photo/HappyBirthdayCake.png">
-                <h3>生日蛋糕</h3>
-                <p>一个充满欢乐的生日蛋糕动画。</p>
-            </a>
-            <a href="/HappyBirthdayFireworks/" class="project-card" data-image="/HappyBirthdayFireworks/photo/HappyBirthdayFireworks.png">
-                <h3>生日烟花</h3>
-                <p>在生日时绽放的烟花特效。</p>
-            </a>
-            <a href="/christmas/" class="project-card" data-image="/christmas/photo/christmas.png">
-                <h3>圣诞主题</h3>
-                <p>一个温馨浪漫的圣诞节主题页面。</p>
-            </a>
-            <a href="/iloveyoufullen/" class="project-card" data-image="/iloveyoufullen/photo/iloveyoufullen.png">
-                <h3>爱心表白墙</h3>
-                <p>一个充满爱意的动态表白页面。</p>
-            </a>
-            <a href="/love3d/" class="project-card" data-image="/love3d/photo/love3d.png">
-                <h3>3D爱心</h3>
-                <p>一个浪漫的 3D 爱心动画。</p>
-            </a>
-            <a href="/love99you/" class="project-card" data-image="/love99you/photo/love99you.png">
-                <h3>99种语言爱心</h3>
-                <p>为你呈现99种语言呈现爱心的浪漫页面。</p>
-            </a>
-            <a href="/lovedouble/" class="project-card" data-image="/lovedouble/photo/lovedouble.png">
-                <h3>双倍爱心</h3>
-                <p>双倍心形图案的浪漫展示。</p>
-            </a>
-            <a href="/lovered/" class="project-card" data-image="/lovered/photo/lovered.png">
-                <h3>红色爱心</h3>
-                <p>一个以红色为主题的爱心动画。</p>
-            </a>
-            <a href="/loveshalou/" class="project-card" data-image="/loveshalou/photo/loveshalou.png">
-                <h3>爱心沙漏</h3>
-                <p>沙漏效果的浪漫爱心页面。</p>
-            </a>
-            <a href="/lovewithstar/" class="project-card" data-image="/lovewithstar/photo/lovewithstar.png">
-                <h3>星星爱心</h3>
-                <p>爱心与星星结合的闪耀页面。</p>
-            </a>
-            <a href="/pink3dlove/" class="project-card" data-image="/pink3dlove/photo/pink3dlove.png">
-                <h3>粉色3D爱心</h3>
-                <p>一个粉色调的 3D 爱心动画。</p>
-            </a>
-            <a href="/red3dlove/" class="project-card" data-image="/red3dlove/photo/red3dlove.png">
-                <h3>红色3D爱心</h3>
-                <p>经典的红色 3D 爱心动画。</p>
-            </a>
-            <a href="/rose/" class="project-card" data-image="/rose/photo/rose.png">
-                <h3>玫瑰花</h3>
-                <p>一朵优雅盛开的玫瑰花网页。</p>
-            </a>
-            <a href="/smallheart/" class="project-card" data-image="/smallheart/photo/smallheart.png">
-                <h3>小爱心</h3>
-                <p>可爱的动态小爱心。</p>
-            </a>
+  <main class="container">
+    <section class="hero">
+      <div>
+        <h1 class="title">创意作品集主页</h1>
+        <p class="subtitle">收纳你的主题小项目：生日、圣诞、爱心动画等，一键直达。支持搜索、标签筛选、预览缩略图。</p>
+        <div class="cta">
+          <a class="btn" href="#projects">浏览全部作品</a>
+          <a class="btn secondary" href="https://github.com/ZhiJingHub/ZhiJingHub.github.io" target="_blank" rel="noopener">查看本站源码</a>
         </div>
+      </div>
+      <div aria-hidden="true" style="position:relative">
+        <svg viewBox="0 0 200 200" width="100%" style="filter: drop-shadow(0 10px 40px rgba(124,92,255,.45));">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0%" stop-color="#7c5cff"/>
+              <stop offset="100%" stop-color="#00e0b8"/>
+            </linearGradient>
+          </defs>
+          <path fill="url(#g1)" d="M39.7,-57.8C52.4,-48.8,64.6,-39.4,69.3,-27.2C73.9,-15.1,70.9,-0.3,66.7,13.1C62.6,26.5,57.1,38.4,47.4,49.7C37.6,61,23.6,71.7,8.3,73.9C-7,76.1,-23.6,69.7,-36.5,60.2C-49.3,50.8,-58.3,38.2,-64.9,23.8C-71.4,9.4,-75.5,-7,-71.6,-20.7C-67.7,-34.4,-55.8,-45.4,-42.6,-54.5C-29.4,-63.5,-14.7,-70.7,-1.1,-69.2C12.5,-67.8,25,-57,39.7,-57.8Z" transform="translate(100 100)"/>
+        </svg>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="searchbar">
+        <input id="q" type="search" placeholder="搜索作品（支持中文/英文，例如：生日/爱心/rose）…" autocomplete="off" />
+      </div>
+      <div class="tags" id="tags"></div>
+      <div class="grid" id="grid" aria-live="polite"></div>
+      <div class="empty" id="empty">没有匹配的作品，试试别的关键词吧。</div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year"></span> ZhiJingHub · 使用 <span class="kbd">GitHub Pages</span> 部署 · <a href="https://github.com/ZhiJingHub/ZhiJingHub.github.io" target="_blank" rel="noopener" style="color:inherit">仓库</a></p>
     </div>
+  </footer>
 
-    <div class="footer">
-        <p>&copy; 2025 ZhiJingHub. 所有项目均托管于 <a href="https://www.netlify.com/" target="_blank">Netlify</a>。</p>
-    </div>
+  <script>
+    // ---- 数据源：在此追加/修改作品配置即可自动出卡片 ----
+    const PROJECTS = [
+      { slug: 'HappyBirthdayCake', name: '生日蛋糕', desc: '充满欢乐的生日蛋糕动画', cover: '/HappyBirthdayCake/photo/HappyBirthdayCake.png', tags: ['生日','动画'] },
+      { slug: 'HappyBirthdayFireworks', name: '生日烟花', desc: '绽放的生日烟花特效', cover: '/HappyBirthdayFireworks/photo/HappyBirthdayFireworks.png', tags: ['生日','烟花'] },
+      { slug: 'christmas', name: '圣诞主题', desc: '温馨浪漫的圣诞节主题页面', cover: '/christmas/photo/christmas.png', tags: ['节日','圣诞'] },
+      { slug: 'iloveyoufullen', name: '爱心表白墙', desc: '充满爱意的动态表白页面', cover: '/iloveyoufullen/photo/iloveyoufullen.png', tags: ['爱心','表白'] },
+      { slug: 'love3d', name: '3D 爱心', desc: '浪漫的 3D 爱心动画', cover: '/love3d/photo/love3d.png', tags: ['爱心','3D'] },
+      { slug: 'love99you', name: '99 种语言爱心', desc: '99 种语言呈现爱心', cover: '/love99you/photo/love99you.png', tags: ['爱心','多语言'] },
+      { slug: 'lovedouble', name: '双倍爱心', desc: '双倍心形的浪漫展示', cover: '/lovedouble/photo/lovedouble.png', tags: ['爱心'] },
+      { slug: 'lovered', name: '红色爱心', desc: '红色主题的爱心动画', cover: '/lovered/photo/lovered.png', tags: ['爱心','红色'] },
+      { slug: 'loveshalou', name: '爱心沙漏', desc: '沙漏效果的浪漫爱心', cover: '/loveshalou/photo/loveshalou.png', tags: ['爱心','沙漏'] },
+      { slug: 'lovewithstar', name: '星星爱心', desc: '爱心与星星结合的页面', cover: '/lovewithstar/photo/lovewithstar.png', tags: ['爱心','星星'] },
+      { slug: 'pink3dlove', name: '粉色 3D 爱心', desc: '粉色调 3D 爱心动画', cover: '/pink3dlove/photo/pink3dlove.png', tags: ['爱心','3D','粉色'] },
+      { slug: 'red3dlove', name: '红色 3D 爱心', desc: '经典红色 3D 爱心动画', cover: '/red3dlove/photo/red3dlove.png', tags: ['爱心','3D','红色'] },
+      { slug: 'rose', name: '玫瑰花', desc: '优雅盛开的玫瑰花网页', cover: '/rose/photo/rose.png', tags: ['花','玫瑰'] },
+      { slug: 'smallheart', name: '小爱心', desc: '可爱的动态小爱心', cover: '/smallheart/photo/smallheart.png', tags: ['爱心','可爱'] },
+    ];
 
-    <script>
-        document。addEventListener('DOMContentLoaded'， () => {
-            const cards = document。querySelectorAll('.project-card');
-            const previewContainer = document。createElement('div');
-            previewContainer。classList。add('preview-image-container');
-            document.body.appendChild(previewContainer);
+    const grid = document.getElementById('grid');
+    const tagsWrap = document.getElementById('tags');
+    const empty = document.getElementById('empty');
+    const q = document.getElementById('q');
 
-            cards.forEach(card => {
-                card.addEventListener('mouseenter', (e) => {
-                    const imageUrl = card.getAttribute('data-image');
-                    if (imageUrl) {
-                        previewContainer.style.backgroundImage = `url(${imageUrl})`;
-                        previewContainer.style.opacity = '1';
-                        previewContainer.style.left = `${e.clientX + window.scrollX}px`;
-                        previewContainer.style.top = `${e.clientY + window.scrollY}px`;
-                    }
-                });
+    function render(list){
+      grid.innerHTML = '';
+      list.forEach(p => {
+        const a = document.createElement('a');
+        a.className = 'card';
+        a.href = `/${p.slug}/`;
+        a.setAttribute('aria-label', p.name);
 
-                card.addEventListener('mousemove', (e) => {
-                    previewContainer.style.left = `${e.clientX + window.scrollX}px`;
-                    previewContainer.style.top = `${e.clientY + window.scrollY}px`;
-                });
+        const img = document.createElement('img');
+        img.className = 'thumb';
+        img.loading = 'lazy';
+        img.src = p.cover || 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="800" height="500"/%3E';
+        img.alt = p.name;
 
-                card.addEventListener('mouseleave', () => {
-                    previewContainer.style.opacity = '0';
-                });
-            });
+        const hover = document.createElement('div');
+        hover.className = 'hover';
+
+        const content = document.createElement('div');
+        content.className = 'content';
+        const h3 = document.createElement('div'); h3.className = 'name'; h3.textContent = p.name;
+        const d = document.createElement('div'); d.className = 'desc'; d.textContent = p.desc || '';
+        content.appendChild(h3); content.appendChild(d);
+
+        const chip = document.createElement('div');
+        chip.className = 'chip';
+        chip.textContent = p.tags?.slice(0,2).join(' · ') || '作品';
+
+        a.appendChild(img); a.appendChild(hover); a.appendChild(content); a.appendChild(chip);
+
+        a.addEventListener('pointermove', e => {
+          const rect = a.getBoundingClientRect();
+          a.style.setProperty('--x', (e.clientX - rect.left) + 'px');
+          a.style.setProperty('--y', (e.clientY - rect.top) + 'px');
         });
-    </script>
+        grid.appendChild(a);
+      });
+    }
+
+    function uniqueTags(items){
+      const set = new Set(items.flatMap(i => i.tags || []));
+      return Array.from(set);
+    }
+
+    function renderTags(all){
+      tagsWrap.innerHTML = '';
+      const allBtn = document.createElement('button');
+      allBtn.className = 'tag'; allBtn.textContent = '全部';
+      allBtn.addEventListener('click', () => { q.value = ''; applyFilter(); });
+      tagsWrap.appendChild(allBtn);
+
+      uniqueTags(all).forEach(t => {
+        const b = document.createElement('button');
+        b.className = 'tag'; b.textContent = t;
+        b.addEventListener('click', () => { q.value = t; applyFilter(); });
+        tagsWrap.appendChild(b);
+      });
+    }
+
+    function applyFilter(){
+      const keyword = q.value.trim().toLowerCase();
+      const filtered = PROJECTS.filter(p => [p.name, p.desc, p.slug, ...(p.tags||[])].join(' ').toLowerCase().includes(keyword));
+      render(filtered);
+      empty.style.display = filtered.length ? 'none' : 'block';
+    }
+
+    q.addEventListener('input', applyFilter);
+
+    // 初始渲染
+    render(PROJECTS);
+    renderTags(PROJECTS);
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // 复制当前站点地址
+    document.getElementById('copyUrl').addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(location.origin);
+        const btn = document.getElementById('copyUrl');
+        const old = btn.textContent; btn.textContent = '已复制 ✓';
+        setTimeout(() => btn.textContent = old, 1400);
+      } catch {}
+    });
+  </script>
 </body>
 </html>
